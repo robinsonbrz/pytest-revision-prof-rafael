@@ -71,3 +71,18 @@ def test_multiplas_somas(entrada):
 
 --cov=      g# 
 
+
+
+
+
+
+
+___
+
+# Mocking
+
+Mock objects that simulate access of external APIs for example.
+
+That we don't want to access externally, or we don't want to make external requests.
+
+Maybe mail servers, external databases, external APIs
