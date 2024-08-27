@@ -40,22 +40,22 @@ pytest <nome-do-arquivo>::<nome-metodo> # executa apenas o método do arquivo
 -x          #  interrompe ao encontrar primeiro erro
 --tb=no     # Traceback print mode (auto/long/short/line/native/no)
 -k          # apenas métodos de testes com nome que contenha a string 
--m          # utiliza marcadores tipo decorator from pytest import mark 
-    - decorar método teste com @mark.marcadorpersonalizado
+-m          # utiliza marcadores tipo decorator import pytest 
+    - decorar método teste com @pytest.markmarcadorpersonalizado
     - para executar: pytest -m "marcadorpersonalizado"
     - pode-se colocar not na string para não executar 
 
-    @mark.skip          #  pula teste com essa marcação
-    @mark.skipif        # pula em determinado contexto
-    @mark.xfail         # espera falha no método (somente positivo se falhar)
-    @mark.userfixture   # 
-    @mark.parametrize   # avaliar diversos parametros
+    @pytest.markskip          #  pula teste com essa marcação
+    @pytest.markskipif        # pula em determinado contexto
+    @pytest.markxfail         # espera falha no método (somente positivo se falhar)
+    @pytest.markuserfixture   # 
+    @pytest.markparametrize   # avaliar diversos parametros
 
 ``` python
 
-from pytest import mark 
+import pytest 
 
-@mark.parametrize(
+@pytest.markparametrize(
     'entrada',
     [3, 5, 6, 8, 9 ,2]
 )
@@ -69,9 +69,37 @@ def test_multiplas_somas(entrada):
 -s          # show standard output - exibe prints 
 
 
---cov=      g# 
+## Coverage
+
+```
+pip install pytest-cov
+python -m pytest --cov-report html --cov .
 
 
+pytest --cov    # para saber a cobertura dos testes
+
+pytest --cov=codigo tests  # para pegar apenas os arquivos do código
+
+pytest --cov=codigo tests --cov-report term-missing
+
+pytest --cov=codigo .\tests\ --cov-report html
+
+
+
+```
+
+
+### Removendo warnings
+
+devemos criar um arquivo chamado **pytest.ini** na raiz
+
+```
+[pytest]
+filterwarnings =
+    error
+    ignore::UserWarning
+
+```
 
 
 
