@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import patch, ANY
 
-from mail_send import send_email
+from ..mail_send import send_email
 
 
 class TestEmail(unittest.TestCase):

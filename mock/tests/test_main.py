@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import patch, Mock
-from main import get_user_data
+from ..main import get_user_data
 
 class TestUserData(unittest.TestCase):
     

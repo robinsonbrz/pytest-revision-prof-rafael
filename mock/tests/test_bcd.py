@@ -1,5 +1,5 @@
 from unittest.mock import patch
-from mock.fetch_www import parse
+from ..fetch_www import parse, fetch_net
 
 @patch('mock.fetch_www.fetch_net')
 def test_parse_from_fetch_net(mock_get):
@@ -9,9 +9,9 @@ def test_parse_from_fetch_net(mock_get):
 
 import pytest
 from unittest.mock import patch
-from fetch_www import fetch_net
+# from fetch_www import fetch_net
 
-@patch('fetch_www.requests.get')
+@patch('mock.fetch_www.requests.get')
 def test_fetch_net_success(mock_get):
     # Arrange
     mock_response = mock_get.return_value
@@ -24,7 +24,7 @@ def test_fetch_net_success(mock_get):
     assert result == "abc"
     mock_get.assert_called_once()
 
-@patch('fetch_www.requests.get')
+@patch('mock.fetch_www.requests.get')
 def test_fetch_net_failure(mock_get):
     # Arrange
     mock_response = mock_get.return_value
