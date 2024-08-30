@@ -69,6 +69,15 @@ def test_multiplas_somas(entrada):
 -s          # show standard output - exibe prints 
 
 
+## Classes de Teste
+
+Ajuda a compartilhar e agrupar fixtures
+
+Aplicar marcas no nível de classe tendo elas implícitas em todos os testes
+
+
+
+
 ## Coverage
 
 ```
